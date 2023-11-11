@@ -33,7 +33,11 @@ const getTrack = async (req, res) => {
       return res.status(404).json({ message: "Track not found" });
     }
 
-    res.status(200).json(track);
+    res.status(200).json({
+        status: true,
+        data: track,
+        message: "Track get successfully!",
+      });
   } catch (error) {
     console.error(error);
     res.status(500).json({ status: false, message: "Internal Server Error" });
@@ -53,7 +57,11 @@ const getTracksForUser = async (req, res) => {
         .json({ message: "No tracks found for the given user" });
     }
 
-    res.status(200).json(tracks);
+    res.status(200).json({
+        status: true,
+        data: tracks,
+        message: "Tracks get successfully!",
+      });
   } catch (error) {
     console.error(error);
     res.status(500).json({ status: false, message: "Internal Server Error" });
