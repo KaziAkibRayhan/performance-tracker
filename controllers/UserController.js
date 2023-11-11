@@ -24,7 +24,7 @@ const loginUser = async (req, res) => {
     if (user) {
       res.status(200).send({ success: true, message: "Login successful" });
     } else {
-      res.status(404).send("User not found");
+      res.status(404).send({ status: true, message: "User not found" });
     }
   } catch (error) {
     res.status(500).send(error);
